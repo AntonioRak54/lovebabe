@@ -146,15 +146,109 @@
       opacity: 0.6;
     }
 
-    .hidden-msg {
+    .hidden-section {
       display: none;
       margin-top: 16px;
-      padding: 16px;
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.12);
-      font-size: 0.95rem;
-      line-height: 1.7;
-      animation: fadeInUp 0.5s ease;
+      animation: fadeInUp 0.6s ease;
+    }
+
+    .voeux-title {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.5rem;
+      margin-bottom: 18px;
+      background: linear-gradient(90deg, #ff6ec7, #ffd700, #ff6ec7);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shimmer 3s linear infinite;
+    }
+
+    .badges-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      position: relative;
+      padding: 10px 0;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 10px 14px;
+      border-radius: 20px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      line-height: 1.4;
+      max-width: 170px;
+      text-align: center;
+      animation: floatBadge 3s ease-in-out infinite;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+    }
+
+    .badge:nth-child(odd) { animation-delay: 0.2s; }
+    .badge:nth-child(even) { animation-delay: 0.8s; }
+    .badge:nth-child(3n) { animation-delay: 1.4s; }
+    .badge:nth-child(4n) { animation-delay: 0.5s; }
+
+    @keyframes floatBadge {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      25% { transform: translateY(-5px) rotate(1deg); }
+      75% { transform: translateY(3px) rotate(-1deg); }
+    }
+
+    .b1 { background: linear-gradient(135deg, #ff6b9d, #c44569); }
+    .b2 { background: linear-gradient(135deg, #ffd700, #ff8c00); color: #302b63; }
+    .b3 { background: linear-gradient(135deg, #a855f7, #6b21a8); }
+    .b4 { background: linear-gradient(135deg, #38bdf8, #0369a1); }
+    .b5 { background: linear-gradient(135deg, #34d399, #065f46); }
+    .b6 { background: linear-gradient(135deg, #fb923c, #c2410c); }
+    .b7 { background: linear-gradient(135deg, #f472b6, #9d174d); }
+    .b8 { background: linear-gradient(135deg, #a78bfa, #4c1d95); }
+
+    .badge-rotate1 { animation: floatBadge 3s ease-in-out infinite, wiggle1 8s linear infinite; }
+    .badge-rotate2 { animation: floatBadge 3.5s ease-in-out infinite, wiggle2 7s linear infinite; }
+
+    @keyframes wiggle1 {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(1.5deg); }
+      75% { transform: rotate(-1.5deg); }
+    }
+
+    @keyframes wiggle2 {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(-2deg); }
+      75% { transform: rotate(2deg); }
+    }
+
+    .final-love {
+      margin-top: 20px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      line-height: 1.6;
+      color: #ff6ec7;
+    }
+
+    .final-love .big {
+      font-size: 1.3rem;
+      color: #ffd700;
+    }
+
+    /* Dancing flowers */
+    .flower {
+      position: fixed;
+      font-size: 28px;
+      pointer-events: none;
+      z-index: 3;
+      animation: danceFlower linear infinite;
+    }
+
+    @keyframes danceFlower {
+      0% { transform: translateY(100vh) rotate(0deg) scale(1); }
+      25% { transform: translateY(70vh) rotate(90deg) scale(1.1); }
+      50% { transform: translateY(40vh) rotate(180deg) scale(0.9); }
+      75% { transform: translateY(15vh) rotate(270deg) scale(1.05); }
+      100% { transform: translateY(-10vh) rotate(360deg) scale(1); }
     }
 
     /* Floating particles */
@@ -209,10 +303,22 @@
 
     <button class="btn" id="openBtn">Ouvre mon vœu 💌</button>
 
-    <div class="hidden-msg" id="secret">
-      🎉 Tu es la personne la plus incroyable que je connaisse, Fanny.<br><br>
-      Que cette nouvelle année t'apporte encore plus de rires, d'amour et de belles surprises.<br><br>
-      Je t'aime fort, Bouboule. ❤️🎂
+    <div class="hidden-section" id="secret">
+      <div class="voeux-title">Mon vœu pour toi, Bouboule ✨</div>
+      <div class="badges-container">
+        <span class="badge badge-rotate1 b1">Tu es celle qui m'a sorti de mon immaturité émotionnelle 💛</span>
+        <span class="badge badge-rotate2 b2">C'est toi que je veux dans ma vie 💕</span>
+        <span class="badge badge-rotate1 b3">Tu as fait de moi ce que je suis aujourd'hui 🌟</span>
+        <span class="badge badge-rotate2 b4">Une grande inspiration pour les autres 🦋</span>
+        <span class="badge badge-rotate1 b5">Une fille incroyable à chaque instant 🌸</span>
+        <span class="badge badge-rotate2 b6">Une femme forte avec sa folie à moi 🧡</span>
+        <span class="badge badge-rotate1 b7">C'est toi que j'aime, Bouboule 💖</span>
+        <span class="badge badge-rotate2 b8">Ma plus belle découverte, Fanny 🌹</span>
+      </div>
+      <div class="final-love">
+        Je t'aime, Bouboule.<br>
+        <span class="big">Joyeux Anniversaire Fanny 💖🎂</span>
+      </div>
     </div>
 
     <div class="footer">Fait avec ❤️ pour toi, du fond du cœur</div>
@@ -246,6 +352,20 @@
 
     setInterval(createParticle, 600);
 
+    // Dancing flowers
+    const flowerEmojis = ["🌸", "🌺", "🌹", "🌷", "💐", "🌻", "🌼"];
+    function createFlower() {
+      const f = document.createElement("div");
+      f.className = "flower";
+      f.textContent = flowerEmojis[Math.floor(Math.random() * flowerEmojis.length)];
+      f.style.left = Math.random() * 100 + "vw";
+      f.style.fontSize = (22 + Math.random() * 18) + "px";
+      f.style.animationDuration = (5 + Math.random() * 5) + "s";
+      f.style.animationDelay = Math.random() * 3 + "s";
+      document.body.appendChild(f);
+      setTimeout(() => f.remove(), 12000);
+    }
+
     // Secret message
     const openBtn = document.getElementById("openBtn");
     const secret = document.getElementById("secret");
@@ -257,9 +377,20 @@
       } else {
         secret.style.display = "block";
         openBtn.textContent = "Fermer 💌";
-        for (let i = 0; i < 25; i++) {
-          setTimeout(() => createParticle(), i * 100);
+        // Burst of flowers
+        for (let i = 0; i < 15; i++) {
+          setTimeout(() => createFlower(), i * 200);
         }
+        // Keep flowers dancing
+        const flowerInterval = setInterval(createFlower, 800);
+        secret._flowerInterval = flowerInterval;
+        // Stop when hidden
+        const observer = new MutationObserver(() => {
+          if (secret.style.display === "none") {
+            clearInterval(secret._flowerInterval);
+          }
+        });
+        observer.observe(secret, { attributes: true, attributeFilter: ["style"] });
       }
     });
   </script>
