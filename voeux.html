@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>💌 Mon vœu pour toi Fanny</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      min-height: 100vh;
+      min-height: -webkit-fill-available;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: "Poppins", Arial, sans-serif;
+      color: white;
+      overflow-x: hidden;
+      overflow-y: auto;
+      padding: 24px 14px;
+      padding-bottom: env(safe-area-inset-bottom, 24px);
+      -webkit-overflow-scrolling: touch;
+      position: relative;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+      z-index: 5;
+      animation: fadeInUp 1s ease;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .voeux-title {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.8rem;
+      margin-bottom: 6px;
+      background: linear-gradient(90deg, #ff6ec7, #ffd700, #ff6ec7);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shimmer 3s linear infinite;
+      line-height: 1.3;
+    }
+
+    @keyframes shimmer {
+      0% { background-position: 0% center; }
+      100% { background-position: 200% center; }
+    }
+
+    .voeux-subtitle {
+      font-size: 1rem;
+      opacity: 0.85;
+      margin-bottom: 24px;
+      font-weight: 600;
+    }
+
+    .badges-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      padding: 8px 0;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 11px 14px;
+      border-radius: 20px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      line-height: 1.4;
+      max-width: 170px;
+      text-align: center;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+    }
+
+    .badge:nth-child(1) { animation: wiggle1 6s ease-in-out infinite 0s; }
+    .badge:nth-child(2) { animation: wiggle2 5.5s ease-in-out infinite 0.3s; }
+    .badge:nth-child(3) { animation: wiggle1 6.5s ease-in-out infinite 0.6s; }
+    .badge:nth-child(4) { animation: wiggle2 5s ease-in-out infinite 0.9s; }
+    .badge:nth-child(5) { animation: wiggle1 5.8s ease-in-out infinite 0.2s; }
+    .badge:nth-child(6) { animation: wiggle2 6.2s ease-in-out infinite 0.5s; }
+    .badge:nth-child(7) { animation: wiggle1 5.3s ease-in-out infinite 0.8s; }
+    .badge:nth-child(8) { animation: wiggle2 6.8s ease-in-out infinite 0.1s; }
+
+    @keyframes wiggle1 {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      25% { transform: translateY(-6px) rotate(2deg); }
+      50% { transform: translateY(0) rotate(0deg); }
+      75% { transform: translateY(4px) rotate(-1.5deg); }
+    }
+
+    @keyframes wiggle2 {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      25% { transform: translateY(4px) rotate(-2deg); }
+      50% { transform: translateY(0) rotate(0deg); }
+      75% { transform: translateY(-6px) rotate(1.5deg); }
+    }
+
+    .b1 { background: linear-gradient(135deg, #ff6b9d, #c44569); }
+    .b2 { background: linear-gradient(135deg, #ffd700, #ff8c00); color: #302b63; }
+    .b3 { background: linear-gradient(135deg, #a855f7, #6b21a8); }
+    .b4 { background: linear-gradient(135deg, #38bdf8, #0369a1); }
+    .b5 { background: linear-gradient(135deg, #34d399, #065f46); }
+    .b6 { background: linear-gradient(135deg, #fb923c, #c2410c); }
+    .b7 { background: linear-gradient(135deg, #f472b6, #9d174d); }
+    .b8 { background: linear-gradient(135deg, #a78bfa, #4c1d95); }
+
+    .final-love {
+      margin-top: 28px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      line-height: 1.7;
+      color: #ff6ec7;
+    }
+
+    .final-love .big {
+      font-size: 1.3rem;
+      color: #ffd700;
+    }
+
+    .footer {
+      margin-top: 24px;
+      font-size: 0.75rem;
+      opacity: 0.6;
+      z-index: 5;
+    }
+
+    .flower {
+      position: fixed;
+      pointer-events: none;
+      z-index: 1;
+      animation: danceFlower linear infinite;
+    }
+
+    @keyframes danceFlower {
+      0% { transform: translateY(100vh) rotate(0deg) scale(1); opacity: 1; }
+      25% { transform: translateY(70vh) rotate(90deg) scale(1.1); }
+      50% { transform: translateY(40vh) rotate(180deg) scale(0.9); }
+      75% { transform: translateY(15vh) rotate(270deg) scale(1.05); }
+      100% { transform: translateY(-10vh) rotate(360deg) scale(1); opacity: 0; }
+    }
+
+    .star {
+      position: fixed;
+      width: 3px;
+      height: 3px;
+      background: white;
+      border-radius: 50%;
+      animation: twinkle 2s infinite alternate;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    @keyframes twinkle {
+      from { opacity: 0.2; transform: scale(1); }
+      to { opacity: 1; transform: scale(1.5); }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="voeux-title">Mon vœu pour toi, Bouboule</div>
+    <div class="voeux-subtitle">✨ Ce que tu représentes pour moi ✨</div>
+
+    <div class="badges-container">
+      <span class="badge b1">Tu es celle qui m'a sorti de mon immaturité émotionnelle 💛</span>
+      <span class="badge b2">C'est toi que je veux dans ma vie 💕</span>
+      <span class="badge b3">Tu as fait de moi ce que je suis aujourd'hui 🌟</span>
+      <span class="badge b4">Une grande inspiration pour les autres 🦋</span>
+      <span class="badge b5">Une fille incroyable à chaque instant 🌸</span>
+      <span class="badge b6">Une femme forte avec sa folie à moi 🧡</span>
+      <span class="badge b7">C'est toi que j'aime, Bouboule 💖</span>
+      <span class="badge b8">Ma plus belle découverte, Fanny 🌹</span>
+    </div>
+
+    <div class="final-love">
+      Je t'aime, Bouboule.<br>
+      <span class="big">Joyeux Anniversaire Fanny 💖🎂</span>
+    </div>
+
+    <div class="footer">Fait avec ❤️ pour toi, du fond du cœur</div>
+  </div>
+
+  <script>
+    // Stars
+    for (let i = 0; i < 50; i++) {
+      const star = document.createElement("div");
+      star.className = "star";
+      star.style.left = Math.random() * 100 + "vw";
+      star.style.top = Math.random() * 100 + "vh";
+      star.style.animationDelay = Math.random() * 3 + "s";
+      star.style.animationDuration = (1.5 + Math.random() * 2) + "s";
+      document.body.appendChild(star);
+    }
+
+    // Dancing flowers
+    const flowerEmojis = ["🌸", "🌺", "🌹", "🌷", "💐", "🌻", "🌼"];
+    function createFlower() {
+      const f = document.createElement("div");
+      f.className = "flower";
+      f.textContent = flowerEmojis[Math.floor(Math.random() * flowerEmojis.length)];
+      f.style.left = Math.random() * 100 + "vw";
+      f.style.fontSize = (20 + Math.random() * 20) + "px";
+      f.style.animationDuration = (5 + Math.random() * 5) + "s";
+      document.body.appendChild(f);
+      setTimeout(() => f.remove(), 11000);
+    }
+
+    // Initial burst
+    for (let i = 0; i < 20; i++) {
+      setTimeout(() => createFlower(), i * 150);
+    }
+
+    // Continuous flowers
+    setInterval(createFlower, 700);
+  </script>
+
+</body>
+</html>
